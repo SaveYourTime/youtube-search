@@ -15,7 +15,7 @@ const api = axios.create({
 
 export const searchByKeyword = (
   query: string,
-  config?: SearchListParams
+  params?: SearchListParams
 ): Promise<SearchListResponse> =>
   api
     .get('search', {
@@ -24,7 +24,7 @@ export const searchByKeyword = (
         maxResults: 10,
         q: query,
         type: 'video',
-        ...config,
+        ...params,
       },
     })
     .then((res) => res.data);
